@@ -1,0 +1,250 @@
+---
+microservice-achievements:
+  resources:
+    requests:
+      cpu: 100m
+      memory: 100M
+    limits:
+      cpu: 300m
+      memory: 300M
+  image: nqminhdl//achievements:2.1.14
+  image-repository:
+    name: nqminhdl//achievements
+  image-policy:
+    range: 2.x.x
+microservice-advisor:
+  resources:
+    requests:
+      cpu: 100m
+      memory: 100M
+    limits:
+      cpu: 300m
+      memory: 300M
+  image: nqminhdl//advisor:2.1.14
+  image-repository:
+    name: nqminhdl//advisor
+  image-policy:
+    range: 2.x.x
+microservice-auth:
+  resources:
+    requests:
+      cpu: 100m
+      memory: 100M
+    limits:
+      cpu: 300m
+      memory: 300M
+  image: nqminhdl//auth:2.4.208
+  image-repository:
+    name: nqminhdl//auth
+  image-policy:
+    range: 2.x.x
+microservice-cases:
+  resources:
+    requests:
+      cpu: 100m
+      memory: 100M
+    limits:
+      cpu: 300m
+      memory: 300M
+  image: nqminhdl//cases:2.1.116
+  image-repository:
+    name: nqminhdl//cases
+  image-policy:
+    range: 2.x.x
+microservice-claims:
+  resources:
+    requests:
+      cpu: 100m
+      memory: 100M
+    limits:
+      cpu: 300m
+      memory: 300M
+  image: nqminhdl//claims:2.1.51
+  image-repository:
+    name: nqminhdl//claims
+  image-policy:
+    range: 2.x.x
+microservice-commissions:
+  resources:
+    requests:
+      cpu: 100m
+      memory: 100M
+    limits:
+      cpu: 300m
+      memory: 300M
+  image: nqminhdl//commissions:2.1.11
+  image-repository:
+    name: nqminhdl//commissions
+  image-policy:
+    range: 2.x.x
+microservice-education:
+  resources:
+    requests:
+      cpu: 100m
+      memory: 100M
+    limits:
+      cpu: 300m
+      memory: 300M
+  image: nqminhdl//education:2.1.15
+  image-repository:
+    name: nqminhdl//education
+  image-policy:
+    range: 2.x.x
+microservice-filesystem:
+  resources:
+    requests:
+      cpu: 100m
+      memory: 100M
+    limits:
+      cpu: 300m
+      memory: 300M
+  image: nqminhdl//filesystem:2.1.84
+  image-repository:
+    name: nqminhdl//filesystem
+  image-policy:
+    range: 2.x.x
+microservice-gateway:
+  ingress:
+    host: 'api.covergo.com'
+  resources:
+    requests:
+      cpu: 100m
+      memory: 100M
+    limits:
+      cpu: 300m
+      memory: 300M
+  image: nqminhdl//gateway:2.1.922
+  image-repository:
+    name: nqminhdl//gateway
+  image-policy:
+    range: 2.x.x
+microservice-l10n:
+  resources:
+    requests:
+      cpu: 100m
+      memory: 100M
+    limits:
+      cpu: 300m
+      memory: 300M
+  image: nqminhdl//l10n:2.1.60
+  image-repository:
+    name: nqminhdl//l10n
+  image-policy:
+    range: 2.x.x
+microservice-notifications:
+  resources:
+    requests:
+      cpu: 100m
+      memory: 100M
+    limits:
+      cpu: 300m
+      memory: 300M
+  image: nqminhdl//notifications:2.1.27
+  image-repository:
+    name: nqminhdl//notifications
+  image-policy:
+    range: 2.x.x
+microservice-policies:
+  resources:
+    requests:
+      cpu: 100m
+      memory: 100M
+    limits:
+      cpu: 300m
+      memory: 300M
+  images: nqminhdl//policies:2.1.293
+  image-repository:
+    name: nqminhdl//policies
+  image-policy:
+    range: 2.x.x
+microservice-pricing:
+  resources:
+    requests:
+      cpu: 100m
+      memory: 100M
+    limits:
+      cpu: 300m
+      memory: 300M
+  image: nqminhdl//pricing:2.1.38
+  image-repository:
+    name: nqminhdl//pricing
+  image-policy:
+    range: 2.x.x
+microservice-products:
+  resources:
+    requests:
+      cpu: 100m
+      memory: 100M
+    limits:
+      cpu: 300m
+      memory: 300M
+  image: nqminhdl//products:2.1.176
+  image-repository:
+    name: nqminhdl//products
+  image-policy:
+    range: 2.1.x
+microservice-scheduler:
+  resources:
+    requests:
+      cpu: 100m
+      memory: 100M
+    limits:
+      cpu: 300m
+      memory: 300M
+  image: nqminhdl//scheduler:2.1.84
+  image-repository:
+    name: nqminhdl//scheduler
+  image-policy:
+    range: 2.x.x
+microservice-scripts:
+  resources:
+    requests:
+      cpu: 100m
+      memory: 100M
+    limits:
+      cpu: 300m
+      memory: 300M
+  image: nqminhdl//scripts:1.0.44
+  image-repository:
+    name: nqminhdl//scripts
+  image-policy:
+    range: 1.x.x
+microservice-templates:
+  resources:
+    requests:
+      cpu: 100m
+      memory: 100M
+    limits:
+      cpu: 300m
+      memory: 300M
+  image: nqminhdl//templates:2.1.116
+  image-repository:
+    name: nqminhdl//templates
+  image-policy:
+    range: 2.x.x
+microservice-transactions:
+  resources:
+    requests:
+      cpu: 100m
+      memory: 100M
+    limits:
+      cpu: 300m
+      memory: 300M
+  image: nqminhdl//transactions:2.1.38
+  image-repository:
+    name: nqminhdl//transactions
+  image-policy:
+    range: 2.x.x
+microservice-users:
+  resources:
+    requests:
+      cpu: 100m
+      memory: 100M
+    limits:
+      cpu: 300m
+      memory: 300M
+  image: nqminhdl//users:2.1.110
+  image-repository:
+    name: nqminhdl//users
+  image-policy:
+    range: 2.x.x

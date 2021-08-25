@@ -1,0 +1,14 @@
+attrs==21.2.0
+autopep8==1.5.7
+cattrs==1.7.1
+cdk8s==0.33.0
+cdk8s-plus==0.33.0
+constructs==3.0.4
+jsii==1.33.0
+publication==0.0.3
+pycodestyle==2.7.0
+python-dateutil==2.8.2
+PyYAML==5.4.1
+six==1.16.0
+toml==0.10.2
+typing-extensions==3.10.0.0

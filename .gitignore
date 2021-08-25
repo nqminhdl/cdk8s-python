@@ -1,2 +1,4 @@
 .venv
 imports
+dist
+__pycache__
