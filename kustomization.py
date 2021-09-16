@@ -3,9 +3,10 @@ class Kustomization():
         self.ns = ns
         self.yaml_data_object = yaml_data_object
 
-    def output_app_yaml(self, service_name, ns, app_path):
+    def output_app_yaml(self, service_name: str, ns: str, app_path: str, kustomization: bool):
         self.yaml_data_object.return_generate_manifest(
             service_name,
             dist_file_path=f'./dist/{self.ns}.k8s.yaml',
-            generated_file_path=f'{app_path}'
+            generated_file_path=f'{app_path}',
+            generate_kustomization=kustomization
         )

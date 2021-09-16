@@ -203,3 +203,52 @@ class AppChart(Chart):
                         ]
                     )
                 )
+
+
+class ImageRepositoryChart(Chart):
+    def __init__(self, scope: Construct, ns: str):
+        super().__init__(scope, ns)
+
+        for service in services:
+            label = {'app': f'{service}'}
+
+            imagerepository.ImageRepository(
+                self, f'{service}-image-repository',
+                metadata={
+                    'name': f'{service}'
+                },
+                spec=imagerepository.ImageRepositorySpec(
+                    image='registry-intl.cn-hongkong.aliyuncs.com/covergo/gateway',
+                    interval='1m',
+                    secret_ref=imagerepository.ImageRepositorySpecSecretRef(
+                        name=str(config.return_service_component(
+                            service_name=service, component_name='image-repository')['name'])
+                    )
+                )
+            )
+
+
+class ImagePoliciesChart(Chart):
+    def __init__(self, scope: Construct, ns: str):
+        super().__init__(scope, ns)
+
+        for service in services:
+            label = {'app': f'{service}'}
+
+            imagepolicy.ImagePolicy(
+                self, f'{service}-imagepolicy',
+                metadata={
+                    'name': f'{service}'
+                },
+                spec=imagepolicy.ImagePolicySpec(
+                    image_repository_ref=imagepolicy.ImagePolicySpecImageRepositoryRef(
+                        name=f'{service}'
+                    ),
+                    policy=imagepolicy.ImagePolicySpecPolicy(
+                        semver=imagepolicy.ImagePolicySpecPolicySemver(
+                            range=str(config.return_service_component(
+                                service_name=service, component_name='image-policy')['range'])
+                        )
+                    )
+                )
+            )
