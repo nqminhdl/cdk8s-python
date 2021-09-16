@@ -11,12 +11,19 @@ config = Yamldata(file_path='config.yaml')
 services = config.return_data().keys()
 
 
-class MyChart(Chart):
+class AppChart(Chart):
     def __init__(self, scope: Construct, ns: str):
         super().__init__(scope, ns)
 
         for service in services:
             label = {'app': f'{service}'}
+
+            k8s.ServiceAccount(
+                self, f'{service}-serviceaccount',
+                metadata=k8s.ObjectMeta(
+                    name=f'{service}'
+                )
+            )
 
             k8s.Service(
                 self, f'{service}-service',
@@ -52,6 +59,7 @@ class MyChart(Chart):
                             labels=label
                         ),
                         spec=k8s.PodSpec(
+                            service_account_name=f'{service}',
                             image_pull_secrets=[
                                 k8s.LocalObjectReference(
                                     name='registry-intl.cn-hongkong.aliyuncs.com'
@@ -195,36 +203,3 @@ class MyChart(Chart):
                         ]
                     )
                 )
-
-            imagerepository.ImageRepository(
-                self, f'{service}-image-repository',
-                metadata={
-                    'name': f'{service}'
-                },
-                spec=imagerepository.ImageRepositorySpec(
-                    image='registry-intl.cn-hongkong.aliyuncs.com/covergo/gateway',
-                    interval='1m',
-                    secret_ref=imagerepository.ImageRepositorySpecSecretRef(
-                        name=str(config.return_service_component(
-                            service_name=service, component_name='image-repository')['name'])
-                    )
-                )
-            )
-
-            imagepolicy.ImagePolicy(
-                self, f'{service}-imagepolicy',
-                metadata={
-                    'name': f'{service}'
-                },
-                spec=imagepolicy.ImagePolicySpec(
-                    image_repository_ref=imagepolicy.ImagePolicySpecImageRepositoryRef(
-                        name=f'{service}'
-                    ),
-                    policy=imagepolicy.ImagePolicySpecPolicy(
-                        semver=imagepolicy.ImagePolicySpecPolicySemver(
-                            range=str(config.return_service_component(
-                                service_name=service, component_name='image-policy')['range'])
-                        )
-                    )
-                )
-            )
